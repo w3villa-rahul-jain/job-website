@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1 or /jobs/1.json
   def show
+    # @job_app = @job.jobApplicants.build
   end
 
   # GET /jobs/new
@@ -57,7 +58,20 @@ class JobsController < ApplicationController
     end
   end
 
+  def apply_jobs
+    @applied = JobApplicant.new(apply_jobs_params)
+    if @applied.save
+      redirect_to request.referer
+    else
+    render 'show'
+    end
+  end
+
   private
+
+    def apply_jobs_params
+      params.permit(:user_id, :job_id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
@@ -67,4 +81,5 @@ class JobsController < ApplicationController
     def job_params
       params.require(:job).permit(:name, :description, :posts)
     end
-end
+
+  end
