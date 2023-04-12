@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+
+
 <div class="d-flex justify-content-center">
 <%= search_form_for @q, url: :jobs do |f| %>
   <%= f.search_field :name_cont %>
@@ -10,7 +13,7 @@
 <div class="container">
   <div class="d-flex justify-content-between py-2">
     <h3 class="text-center">Jobs</h3>
-    <% if current_user && current_user.role == 1 %>
+    <% if current_user && current_user.role == true %>
       <button class="btn btn-primary"><%= link_to 'New Job', new_job_path, class: "text-white" %></button>
     <% end %>
   </div>
@@ -22,7 +25,7 @@
         <th scope="col">Description</th>
         <th scope="col">Posts</th>
         <th scope="col">Show</th>
-        <% if current_user && current_user.role == 1 %>
+        <% if current_user && current_user.role == true %>
           <th scope="col">Edit</th>
           <th scope="col">Destroy</th>
         <% end %>
@@ -36,7 +39,7 @@
           <td> <%= job.description.truncate(25)%></td>
           <td><%= job.posts %></td>
           <td><%= link_to 'Show', job, class: "btn btn-primary text-white" %></td>
-          <% if current_user && current_user.role == 1 %>
+          <% if current_user && current_user.role == true %>
             <td><%= link_to 'Edit', edit_job_path(job), class: "btn btn-info text-white" %></td>
             <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger text-white" %></td>
           <% end %>

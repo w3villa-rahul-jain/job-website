@@ -2,17 +2,17 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @job.name %>
+  <%= @job&.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @job.description %>
+  <%= @job&.description %>
 </p>
 
 <p>
   <strong>Posts:</strong>
-  <%= @job.posts %>
+  <%= @job&.posts %>
 </p>
 
 <%= form_tag apply_jobs_path, method: :post do %>
@@ -20,7 +20,7 @@
   <%= hidden_field_tag :user_id, current_user.id %>
   <%= submit_tag "Apply" %>
 <% end %>
-<% if current_user && current_user.role == 1 %>       
+<% if current_user && current_user.role == true %>       
   <%= link_to 'Edit', edit_job_path(@job) %> |
 <% end %>
 <%= link_to 'Back', jobs_path %>
