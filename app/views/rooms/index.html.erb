@@ -1,3 +1,6 @@
+
+
+
 <div class="row">
   <div class="col-md-2">
     <h5> Hi <%= @current_user.email %> </h5>
@@ -17,8 +20,20 @@
       </div>
     </div>
   </div>
-  <div class="col-md-10 bg-dark">
-    The chat box stays here
+  <div class="col-md-10 bg-dark text-light">
+    <% if @single_room %>
+      <h4 class="text-center"> <%= @single_room.name %> </h4>
+      The chat box stays here
+    <% end %>
+    <%= turbo_stream_from @single_room %>
+      <div id="messages">
+      </div>
+      <%= render partial: 'layouts/new_message_form' >
+
   </div>
+  
 </div>
+
+
+
 
