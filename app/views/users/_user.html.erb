@@ -1,1 +1,4 @@
-<div> <%= link_to user.email, user %> </div>
+<% @users.each do |user| %>
+    <div id="<%= dom_id(user) %>">
+    <%= link_to user.email, user %> </div>
+ <% end %>

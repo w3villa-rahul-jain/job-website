@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 
 
 <div class="d-flex justify-content-center">
 <%= search_form_for @q, url: :jobs do |f| %>
   <%= f.search_field :name_cont %>
   <%= f.submit "Search", class: "btn btn-success" %>
-<% end %>
-</div>
-
-<div class="container">
+  <% end %>
+  </div>
+  <div class="d-flex container justify-content-end">
+    <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+  
+  <div class="container">
   <div class="d-flex justify-content-between py-2">
     <h3 class="text-center">Jobs</h3>
     <% if current_user && current_user.role == true %>
