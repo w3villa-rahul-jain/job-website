@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+ .all-align-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+   
+}
+
+.main-box{
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.main-box input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.main-box input:focus{
+    outline: none;
+}
+

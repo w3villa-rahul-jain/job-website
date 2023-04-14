@@ -24,13 +24,13 @@
     <% if @single_room %>
       <h4 class="text-center"> <%= @single_room.name %> </h4>
       The chat box stays here
-    <% end %>
-    <%= turbo_stream_from @single_room %>
-      <div id="messages">
+      <% end %>
+      <%= turbo_stream_from @single_room %>
+        <div id="messages">
+          <%= render @messages %>
+        </div>
+      <%= render partial: 'layouts/new_message_form' %>
       </div>
-      <%= render partial: 'layouts/new_message_form' >
-
-  </div>
   
 </div>
 
