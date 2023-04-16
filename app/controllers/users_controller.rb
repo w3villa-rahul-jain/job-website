@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         @users = User.all;
         @userId = current_user.id
         @jobs_listing = current_user.jobs 
+        @job_list = Job.all;
     end
 
     def show
